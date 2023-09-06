@@ -83,12 +83,12 @@ public class HotelManagementRepository {
 
     public int getBookings(Integer aadharCard) {
 
-        if(userDb.containsKey(aadharCard) == false) return 0;
+        if(userDb.containsKey(aadharCard) == false) return -1;
         String userName = userDb.get(aadharCard).getName();
         for(String BID : bookingDb.keySet())
         {
             if(bookingDb.get(BID).getBookingPersonName() == userName) return 1;
         }
-        return 0;
+        return -1;
     }
 }
